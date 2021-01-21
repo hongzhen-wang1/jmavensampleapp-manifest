@@ -14,5 +14,5 @@ spec:
         args:
           - wget
           - --spider
-          - el-job-listener.default.svc.cluster.local:9097
+          - el-job-listener.default.svc.cluster.local:8080
       restartPolicy: Never
