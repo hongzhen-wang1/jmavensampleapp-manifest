@@ -1,40 +1,42 @@
 {
 	"info": {
-		"_postman_id": "805a53b1-3c96-4aa6-9123-f0906da6547e",
+		"_postman_id": "c1e40b80-9767-46d3-9771-77403039f03d",
 		"name": "Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get Request 1",
+			"name": "Get Request1",
 			"event": [
 				{
-					"listen": "test",
+					"listen": "prerequest",
 					"script": {
+						"id": "cd292588-5fd4-4fde-a232-aec6db4cf1a1",
 						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    var s_request_id = String(pm.collectionVariables.get(\"request_id\"));",
-							"    pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id + \"@ibm.xxx.com\");",
-							"    pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id);",
-							"    pm.expect(jsonData.id).to.eql(s_request_id);",
-							"    pm.expect(jsonData.password === pm.collectionVariables.get(\"password\"));",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
 				},
 				{
-					"listen": "prerequest",
+					"listen": "test",
 					"script": {
+						"id": "ae3c993b-ef7c-41b9-bcfe-c3df77a4579d",
 						"exec": [
-							"pm.collectionVariables.set(\"request_id\", 1);"
+							"pm.test(\"response data check\", function () {",
+							"var jsonData = pm.response.json();",
+							"var s_request_id = String(pm.collectionVariables.get(\"request_id\")); pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id +",
+							"\"@ibm.xxx.com\");",
+							"pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id); pm.expect(jsonData.id).to.eql(s_request_id); pm.collectionVariables.set(\"request_id\", jsonData.id); pm.expect(jsonData.password ===",
+							"pm.collectionVariables.get(\"password\")); });",
+							"",
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than max ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(300)",
+							"});",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -51,44 +53,54 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{url}}{{path}}{{request_id}}",
+					"raw": "http://localhost:9080/sample-app-api/user/findById/1",
+					"protocol": "http",
 					"host": [
-						"{{url}}{{path}}{{request_id}}"
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"sample-app-api",
+						"user",
+						"findById",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Request 2",
+			"name": "Get Request2",
 			"event": [
 				{
-					"listen": "test",
+					"listen": "prerequest",
 					"script": {
+						"id": "ab142de8-296d-424e-b4f4-23473ab31b29",
 						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    var s_request_id = String(pm.collectionVariables.get(\"request_id\"));",
-							"    pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id + \"@ibm.xxx.com\");",
-							"    pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id);",
-							"    pm.expect(jsonData.id).to.eql(s_request_id);",
-							"    pm.expect(jsonData.password === pm.collectionVariables.get(\"password\"));",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
+							"pm.collectionVariables.set(\"request_id\", parseInt(pm.collectionVariables.get(\"request_id\")) + 1);"
 						],
 						"type": "text/javascript"
 					}
 				},
 				{
-					"listen": "prerequest",
+					"listen": "test",
 					"script": {
+						"id": "b0e4f132-5cce-434f-9caa-dbbf3cdccec7",
 						"exec": [
-							"pm.collectionVariables.set(\"request_id\", parseInt(pm.collectionVariables.get(\"request_id\")) + 1);"
+							"pm.test(\"response data check\", function () {",
+							"var jsonData = pm.response.json();",
+							"var s_request_id = String(pm.collectionVariables.get(\"request_id\")); pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id +",
+							"\"@ibm.xxx.com\");",
+							"pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id); pm.expect(jsonData.id).to.eql(s_request_id); pm.collectionVariables.set(\"request_id\", jsonData.id); pm.expect(jsonData.password ===",
+							"pm.collectionVariables.get(\"password\")); });",
+							"",
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than max ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(300)",
+							"});",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -104,186 +116,6 @@
 					"mode": "formdata",
 					"formdata": []
 				},
-				"url": {
-					"raw": "{{url}}{{path}}{{request_id}}",
-					"host": [
-						"{{url}}{{path}}{{request_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Request 3",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    var s_request_id = String(pm.collectionVariables.get(\"request_id\"));",
-							"    pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id + \"@ibm.xxx.com\");",
-							"    pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id);",
-							"    pm.expect(jsonData.id).to.eql(s_request_id);",
-							"    pm.expect(jsonData.password === pm.collectionVariables.get(\"password\"));",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.collectionVariables.set(\"request_id\", parseInt(pm.collectionVariables.get(\"request_id\")) + 1);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}{{path}}{{request_id}}",
-					"host": [
-						"{{url}}{{path}}{{request_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Request 4",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    var s_request_id = String(pm.collectionVariables.get(\"request_id\"));",
-							"    pm.expect(jsonData.email).to.eql(\"Sample0\" + s_request_id + \"@ibm.xxx.com\");",
-							"    pm.expect(jsonData.name).to.eql(\"Sample0\" + s_request_id);",
-							"    pm.expect(jsonData.id).to.eql(s_request_id);",
-							"    pm.expect(jsonData.password === pm.collectionVariables.get(\"password\"));",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.collectionVariables.set(\"request_id\", parseInt(pm.collectionVariables.get(\"request_id\")) + 1);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}{{path}}{{request_id}}",
-					"host": [
-						"{{url}}{{path}}{{request_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Request 5",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.eql(\"該当するユーザーは存在しません。\");",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.collectionVariables.set(\"request_id\", \"5\");"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}{{path}}{{request_id}}",
-					"host": [
-						"{{url}}{{path}}{{request_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Request a",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response data check\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.eql(\"検索に失敗しました。数字以外のIDが入力されています。\");",
-							"});",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Response time is less than max ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(parseInt(pm.collectionVariables.get(\"max_response_time\")))",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.collectionVariables.set(\"request_id\", \"a\");"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
 				"url": {
 					"raw": "{{url}}{{path}}{{request_id}}",
 					"host": [
@@ -298,6 +130,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "522e530b-e6ba-4475-8fef-92d95db04596",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -307,6 +140,7 @@
 		{
 			"listen": "test",
 			"script": {
+				"id": "07553022-92ef-4a90-a68d-a8e8efd089b8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -316,24 +150,30 @@
 	],
 	"variable": [
 		{
+			"id": "e8670e8b-3a7f-419f-9e11-d11f5affe027",
 			"key": "url",
-			"value": "http://jmavensampleapp:9080"
+			"value": "http://localhost:9080"
 		},
 		{
+			"id": "28d22bc8-6fe9-4498-8c54-1534a9b5d576",
 			"key": "path",
 			"value": "/sample-app-api/user/findById/"
 		},
 		{
+			"id": "dba04039-1bd2-42a4-b6ac-a188243a3a5e",
 			"key": "request_id",
 			"value": "1"
 		},
 		{
+			"id": "38827481-38a2-48b1-8f72-1817a0433086",
 			"key": "password",
 			"value": "123456"
 		},
 		{
+			"id": "657e1f7f-6163-4126-b613-eca47c391b57",
 			"key": "max_response_time",
-			"value": "1000"
+			"value": "300"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
