@@ -15,7 +15,7 @@ spec:
         app: jmavensampleapp
     spec:
       containers:
-      - image: midotanaka/jmavensampleapp
+      - image: hongzhenwang/jmavensampleapp
         name: jmavensampleapp
         ports:
         - containerPort: 9080
