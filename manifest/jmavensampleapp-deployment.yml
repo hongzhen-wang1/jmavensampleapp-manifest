@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmavensampleapp
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: jmavensampleapp
+  template:
+    metadata:
+      labels:
+        app: jmavensampleapp
+    spec:
+      containers:
+      - image: midotanaka/jmavensampleapp
+        name: jmavensampleapp
+        ports:
+        - containerPort: 9080
