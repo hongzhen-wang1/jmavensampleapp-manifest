@@ -150,27 +150,27 @@
 	],
 	"variable": [
 		{
-			"id": "e8670e8b-3a7f-419f-9e11-d11f5affe027",
+			"id": "fced31d9-ec9a-45ab-9089-4f03193d1fdf",
 			"key": "url",
-			"value": "http://localhost:9080"
+			"value": "jmavensampleapp.default.svc.cluster.local:9080"
 		},
 		{
-			"id": "28d22bc8-6fe9-4498-8c54-1534a9b5d576",
+			"id": "8d01d8c2-2d7b-4bb4-834b-7d09cd665b46",
 			"key": "path",
 			"value": "/sample-app-api/user/findById/"
 		},
 		{
-			"id": "dba04039-1bd2-42a4-b6ac-a188243a3a5e",
+			"id": "7f30ca36-900b-43e2-b1f3-e55e0c912f4a",
 			"key": "request_id",
 			"value": "1"
 		},
 		{
-			"id": "38827481-38a2-48b1-8f72-1817a0433086",
+			"id": "18a3f15a-1f96-47a4-a408-0221f8f2f282",
 			"key": "password",
 			"value": "123456"
 		},
 		{
-			"id": "657e1f7f-6163-4126-b613-eca47c391b57",
+			"id": "80f3f8ec-1c4d-4763-8a54-b442cbd54bb0",
 			"key": "max_response_time",
 			"value": "300"
 		}
