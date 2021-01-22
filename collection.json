@@ -53,17 +53,9 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://localhost:9080/sample-app-api/user/findById/1",
-					"protocol": "http",
+					"raw": "{{url}}{{path}}{{request_id}}",
 					"host": [
-						"localhost"
-					],
-					"port": "9080",
-					"path": [
-						"sample-app-api",
-						"user",
-						"findById",
-						"1"
+						"{{url}}{{path}}{{request_id}}"
 					]
 				}
 			},
@@ -150,27 +142,27 @@
 	],
 	"variable": [
 		{
-			"id": "fced31d9-ec9a-45ab-9089-4f03193d1fdf",
+			"id": "9fd3684a-a16c-4448-b5bf-d3f8bf4a4661",
 			"key": "url",
-			"value": "jmavensampleapp.default.svc.cluster.local:9080"
+			"value": "http://jmavensampleapp:9080"
 		},
 		{
-			"id": "8d01d8c2-2d7b-4bb4-834b-7d09cd665b46",
+			"id": "849ab01d-270b-47a4-99fe-fd8a3fbb0b4c",
 			"key": "path",
 			"value": "/sample-app-api/user/findById/"
 		},
 		{
-			"id": "7f30ca36-900b-43e2-b1f3-e55e0c912f4a",
+			"id": "93e9c49f-2b88-4c29-9266-8e06d731eb4c",
 			"key": "request_id",
 			"value": "1"
 		},
 		{
-			"id": "18a3f15a-1f96-47a4-a408-0221f8f2f282",
+			"id": "a1166dd8-9f22-4f4b-8550-9051e8ab4dd5",
 			"key": "password",
 			"value": "123456"
 		},
 		{
-			"id": "80f3f8ec-1c4d-4763-8a54-b442cbd54bb0",
+			"id": "943f8f1a-77fe-4e97-9293-b03fdbdd3b37",
 			"key": "max_response_time",
 			"value": "300"
 		}
